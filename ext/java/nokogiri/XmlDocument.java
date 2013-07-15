@@ -74,6 +74,7 @@ import org.w3c.dom.NodeList;
  *
  * @author sergio
  * @author Yoko Harada <yokolet@gmail.com>
+ * @author John Shahid <jvshahid@gmail.com>
  */
 
 @JRubyClass(name="Nokogiri::XML::Document", parent="Nokogiri::XML::Node")
@@ -351,6 +352,7 @@ public class XmlDocument extends XmlNode {
     public IRubyObject remove_namespaces(ThreadContext context) {
         removeNamespceRecursively(context, this);
         nsCache.clear();
+        XmlNode.clearXpathContext(getNode());
         return this;
     }
     
