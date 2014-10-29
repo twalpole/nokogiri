@@ -216,7 +216,7 @@ else
       version = dependencies[lib]
       archive = File.join("ports", "archives", "#{lib}-#{version}.tar.gz")
       add_file_to_gem archive
-      patchesdir = File.join("ports", "patches", lib)
+      patchesdir = File.join("ports", "patches", lib, version)
       patches = `#{['git', 'ls-files', patchesdir].shelljoin}`.split("\n").grep(/\.patch\z/)
       patches.each { |patch|
         add_file_to_gem patch
